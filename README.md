@@ -18,6 +18,7 @@ Deploy multi-object tracking deep learning models on AWS to analyze pedestrian t
 
 ### One-shot deep learning method: FairMOT
 <img src="assets/shopping-mall2-results-FairMOT-ct03dt03-largefont.gif" width="600"/> 
+
 ## Next to implement
 * Project pedestrian trajectories onto 2D floor plans.
 * Post-process trajectories (e.g. fix inaccurate re-id over frames)
