@@ -16,8 +16,7 @@ Deploy multi-object tracking deep learning models on AWS to analyze pedestrian t
 ### Two-step online method: YOLOv3 + SORT
 
 ### One-shot deep learning method: FairMOT
-![](shopping-mall2-results-ct03dt03-largefont.gif)
-
+<img src="assets/shopping-mall2-results-ct03dt03-largefont.gif" width="800"/> 
 ## Next to implement
 * Project pedestrian trajectories onto 2D floor plans.
 * Post-process trajectories (e.g. fix inaccurate re-id over frames)
