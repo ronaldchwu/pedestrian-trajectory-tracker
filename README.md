@@ -1,5 +1,6 @@
 # Track pedestrian trajectories for space usage planning
 ![](assets/aws-solution-architecture.png)
+<img src="https://github.com/ronaldchwu/pedestrian-trajectory-tracker/blob/main/assets/aws-solution-architecture.png" width="800">
 
 ## Overview
 
