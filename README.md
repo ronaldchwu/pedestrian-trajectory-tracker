@@ -31,6 +31,8 @@ For both solutions, I used pre-trained models to examine their preliminary perfo
 ### Baseline solution: YOLOv3 + SORT
 <img src="assets/shopping-mall2-SORT-results-largefont.gif" width="600"/> 
 
+We can see that the baseline model does not detect people well, especially those at the far end of the floor. More critically, occlusion seems to be causing big problems. People who walk in groups sometimes got their ID swapped. It is not surprising, because the YOLOv3 model used here is the 'vanilla' version without configuration for tackling occlusion, scaling (people further away is smaller) and deformation (people may change posture). Also, the SORT algorithm is prone to mis-identification when people form groups and walk pass each other.
+
 ### SOTA solution: FairMOT
 <img src="assets/shopping-mall2-results-FairMOT-ct03dt03-largefont.gif" width="600"/> 
 
