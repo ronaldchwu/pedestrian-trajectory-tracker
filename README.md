@@ -27,14 +27,20 @@ The SOTA model has a much more complicated algorithm design. Fortunately, the au
 
 For both solutions, I used pre-trained models to examine their preliminary performance. In production, both models should be trained on proper training data sets.
 
+Below I tested the solution with a video clip of people in shopping mall ([link]()). It is not seen by the models before, and present some occlusion challenges.
+
 ## Performance
 ### Baseline solution: YOLOv3 + SORT
 <img src="assets/shopping-mall2-SORT-results-largefont.gif" width="600"/> 
 
-We can see that the baseline solution does not detect people well, especially those at the far end of the floor. More critically, occlusion seems to be causing big problems. People who walk in groups sometimes got their ID swapped. It is not surprising, because the YOLOv3 model used here is the 'vanilla' version without configuration for tackling occlusion, scaling (people further away is smaller) and deformation (people may change posture). Also, the SORT algorithm is prone to mis-identification when people form groups and walk pass each other.
+We can see that the baseline model does not detect people well, especially those at the far end of the floor. More critically, occlusion seems to be causing big problems. People who walk in groups sometimes got their ID swapped. It is not surprising, because the YOLOv3 model used here is the 'vanilla' version based on ResNet-34 backbone, with no configuration for tackling occlusion, scaling (people further away is smaller) and deformation (people may change posture). Also, the SORT algorithm is prone to mis-identification when people form groups and walk pass each other.
 
 ### SOTA solution: FairMOT
 <img src="assets/shopping-mall2-results-FairMOT-ct03dt03-largefont.gif" width="600"/> 
+
+The FairMOT model does a much better job. Occlusion problem is reasonably resolved. Although sometimes the same person is 'flashing' and keep being assigned new ID, it is much easier to fix on trajectory maps compared to the swapping problem above. 
+
+There are at least three reasons for the model's good performance: 1) it uses a deformable convolution network with deep layer aggregation backbone (DLA-34), which handles scaling and deformation better than YOLOv3-ResNet34; 2) explicit learning of each person's appearance greatly improved re-identification during tracking; 3) the model was pre-trained on multi-object detection datasets. 
 
 ## Next to implement
 * Project pedestrian trajectories onto 2D floor plans.
