@@ -40,7 +40,7 @@ We can see that the baseline model does not detect people well, especially those
 
 The FairMOT model does a much better job. Occlusion problem is reasonably resolved. Although sometimes the same person is 'flashing' and keep being assigned new ID, it is much easier to fix on trajectory maps compared to the swapping problem above. 
 
-There are at least three reasons for the model's good performance: 1) it uses a deformable convolution network with deep layer aggregation backbone (DLA-34), which handles scaling and deformation better than YOLOv3-ResNet34; 2) explicit learning of each person's appearance greatly improved re-identification during tracking; 3) the model was pre-trained on multi-object detection datasets. 
+There are at least three reasons for the model's good performance: 1) it uses a deformable convolution network with deep layer aggregation backbone (DLA-34), which handles scaling and deformation better than YOLOv3-ResNet34; 2) explicit learning of each person's appearance greatly improved re-identification during tracking; 3) the model was pre-trained on multi-object detection datasets, allowing effective transfer learning into our use case. 
 
 It is fascinating that the FairMOT model does quite well on a video clip it never saw before. It demonstrates the usefulness of transfer learning. In practice, a better performance can be expected after formally trained and fine-tuned the model on training data set of the same camera. Our MLOps architecture makes it easier to do so, and to deploy improved model checkpoints into production.
 
