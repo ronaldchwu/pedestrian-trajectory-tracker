@@ -25,6 +25,7 @@ Here I experimented with one simple, baseline solution and one state-of-the-art 
 
 The SOTA model has a much more complicated algorithm design. Fortunately, the authors of FairMOT provides open-source implemention scripts of both the detection and tracking tasks ([ifzhang/FairMOT](https://github.com/ifzhang/FairMOT/blob/master/src/track.py)). With a few customized script modification, the model can be run and deployed on AWS cloud environment.
 
+For both solutions, I used pre-trained models to examine their preliminary performance. In production, both models should be trained on proper training data sets.
 
 ## Performance
 ### Baseline solution: YOLOv3 + SORT
