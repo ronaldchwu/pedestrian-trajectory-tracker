@@ -11,18 +11,26 @@ This service allows users to simply upload a video to a cloud storage (AWS S3), 
 -- note 27-Mar-2021: The multi-object tracking models are developed and tested. Trajectory analysis is the next step.
 
 ## Methods
-* Two-step online method: YOLOv3 + SORT
-* One-shot deep learning method: FairMOT
-[ifzhang/FairMOT](https://github.com/ifzhang/FairMOT)
-> [**FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking**](http://arxiv.org/abs/2004.01888),            
-> Yifu Zhang, Chunyu Wang, Xinggang Wang, Wenjun Zeng, Wenyu Liu,        
-> *arXiv technical report ([arXiv 2004.01888](http://arxiv.org/abs/2004.01888))*
+Pedestrian tracking is a multi-object tracking (MOT) problem. It involves detecting people in video frames using deep learning models, and associating the positive detections to specific personID using some tracking algorithms. Therefore, to deliver good solutions, we need to select good combinations of deep learning model and tracking algorithm.
+
+Here I experimented with one simple, baseline solution and one state-of-the-art (SOTA) solution. 
+
+A) Baseline solution: 
+- Use classic object detection deep learning model (YOLOv3) to detect people in each video frame. This and other classic models are widely available on different frameworks (Tensorflow, PyTorch...) and can be easily imported and used. 
+- Use a Simple Online and Realtime Tracking(SORT) algorithm that identify people's trajectories based only on locations of the positive detection bounding boxes. This approach does not require learning about each person's appearance (e.g. color of cloth) and is easy to implement (with just one .py script).
+
+B) SOTA solution:
+- Use FairMOT, a deep learning model specifically designed for multi-object tracking. This deep neural network can simultaneously detect people and learn about their individual feature embeddings (person's appearance).
+- Use a tracking algorithm that uses both locations and feature embeddings to associate positive detections to specific person ID.
+
+The SOTA model has a much more complicated algorithm design. Fortunately, the authors of FairMOT provides open-source implemention scripts ([ifzhang/FairMOT](https://github.com/ifzhang/FairMOT/blob/master/src/track.py)). With a few customized script modification, the model can be run and deployed on AWS cloud environment.
+
 
 ## Performance
-### Two-step online method: YOLOv3 + SORT
+### Baseline solution: YOLOv3 + SORT
 <img src="assets/shopping-mall2-SORT-results-largefont.gif" width="600"/> 
 
-### One-shot deep learning method: FairMOT
+### SOTA solution: FairMOT
 <img src="assets/shopping-mall2-results-FairMOT-ct03dt03-largefont.gif" width="600"/> 
 
 ## Next to implement
@@ -30,3 +38,7 @@ This service allows users to simply upload a video to a cloud storage (AWS S3), 
 * Post-process trajectories (e.g. fix inaccurate re-id over frames)
 
 ## Acknowledgement
+Thanks to the developers of FairMOT for providing open-source implemention scripts. For details of FairMOT model, please refer to the original publication:
+> [**FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking**](http://arxiv.org/abs/2004.01888),            
+> Yifu Zhang, Chunyu Wang, Xinggang Wang, Wenjun Zeng, Wenyu Liu,        
+> *arXiv technical report ([arXiv 2004.01888](http://arxiv.org/abs/2004.01888))*
