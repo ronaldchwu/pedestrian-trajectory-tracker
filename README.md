@@ -23,7 +23,7 @@ Here I experimented with one simple, baseline solution and one state-of-the-art 
 - Use FairMOT, a deep learning model specifically designed for multi-object tracking. This deep neural network can simultaneously detect people and learn about their individual feature embeddings (person's appearance).
 - Use a tracking algorithm that uses both locations and feature embeddings to associate positive detections to specific person ID.
 
-The SOTA model has a much more complicated algorithm design. Fortunately, the authors of FairMOT provides open-source implemention scripts ([ifzhang/FairMOT](https://github.com/ifzhang/FairMOT/blob/master/src/track.py)). With a few customized script modification, the model can be run and deployed on AWS cloud environment.
+The SOTA model has a much more complicated algorithm design. Fortunately, the authors of FairMOT provides open-source implemention scripts of both the detection and tracking tasks ([ifzhang/FairMOT](https://github.com/ifzhang/FairMOT/blob/master/src/track.py)). With a few customized script modification, the model can be run and deployed on AWS cloud environment.
 
 
 ## Performance
