@@ -17,10 +17,10 @@ Here I experimented with one simple, baseline solution and one state-of-the-art 
 
 **A) Baseline solution:** ([YOLOv3-SORT.ipynb](YOLOv3-SORT.ipynb))
 - Use classic object detection deep learning model (YOLOv3) to detect people in each video frame. This and other classic models are widely available on different frameworks (Tensorflow, PyTorch, mxnet) and can be easily imported and used. Here I use the [gluoncv implementation of the YOLOv3 model](https://cv.gluon.ai/build/examples_detection/demo_yolo.html#sphx-glr-build-examples-detection-demo-yolo-py).
-- Use a Simple Online and Realtime Tracking (SORT) algorithm that identify people's trajectories based only on locations of the positive detection bounding boxes. This approach does not require learning about each person's appearance (e.g. color of cloth) and is easy to implement (with just one .py script, using implementation of ([abewley/sort](https://github.com/abewley/sort)) ).
+- Use a Simple Online and Realtime Tracking (SORT) algorithm that identify people's trajectories based only on locations of the positive detection bounding boxes. This approach does not require learning about each person's appearance (e.g. color of cloth) and is easy to implement (with just one .py script, using implementation of ([abewley/sort](https://github.com/abewley/sort))). The algorithm offers multiple parameters for fine-tuning; for example, how many consecutive frames do we allow a person to be missing, and the threshold of box overlap for declaring a match. 
 
 **B) SOTA solution:** ([FairMOT.ipynb](FairMOT.ipynb))
-- Use FairMOT, a deep learning model specifically designed for multi-object tracking. This deep neural network can simultaneously detect people and learn about their individual feature embeddings (person's appearance).
+- Use FairMOT, a deep learning model specifically designed for multi-object tracking. This deep neural network can simultaneously detect people and learn about their individual feature embeddings (person's appearance). 
 - Use a tracking algorithm that uses both locations and feature embeddings to associate positive detections to specific person ID.
 
 The SOTA model has a much more complicated algorithm design. Fortunately, the authors of FairMOT provides open-source implemention scripts of both the detection and tracking tasks ([ifzhang/FairMOT](https://github.com/ifzhang/FairMOT/blob/master/src/track.py)). With a few customized script modification, the model can be run and deployed on AWS cloud environment.
