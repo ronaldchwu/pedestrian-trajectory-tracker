@@ -17,7 +17,7 @@ Here I experimented with one simple, baseline solution and one state-of-the-art 
 
 **A) Baseline solution:**
 - Use classic object detection deep learning model (YOLOv3) to detect people in each video frame. This and other classic models are widely available on different frameworks (Tensorflow, PyTorch...) and can be easily imported and used. 
-- Use a Simple Online and Realtime Tracking (SORT) algorithm ([abewley/sort](https://github.com/abewley/sort)) that identify people's trajectories based only on locations of the positive detection bounding boxes. This approach does not require learning about each person's appearance (e.g. color of cloth) and is easy to implement (with just one .py script).
+- Use a Simple Online and Realtime Tracking (SORT) algorithm that identify people's trajectories based only on locations of the positive detection bounding boxes. This approach does not require learning about each person's appearance (e.g. color of cloth) and is easy to implement (with just one .py script, using implementation of ([abewley/sort](https://github.com/abewley/sort)) ).
 
 **B) SOTA solution:**
 - Use FairMOT, a deep learning model specifically designed for multi-object tracking. This deep neural network can simultaneously detect people and learn about their individual feature embeddings (person's appearance).
