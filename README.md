@@ -37,8 +37,9 @@ The SOTA model has a much more complicated algorithm design. Fortunately, the au
 * Project pedestrian trajectories onto 2D floor plans.
 * Post-process trajectories (e.g. fix inaccurate re-id over frames)
 
-## Acknowledgement
-Thanks to the developers of FairMOT for providing open-source implemention scripts. For details of FairMOT model, please refer to the original publication:
+## Acknowledgements
+Thanks to the developers of SORT and FairMOT for providing open-source implemention scripts. 
+For details of FairMOT model, please refer to the original publication:
 > [**FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking**](http://arxiv.org/abs/2004.01888),            
 > Yifu Zhang, Chunyu Wang, Xinggang Wang, Wenjun Zeng, Wenyu Liu,        
 > *arXiv technical report ([arXiv 2004.01888](http://arxiv.org/abs/2004.01888))*
