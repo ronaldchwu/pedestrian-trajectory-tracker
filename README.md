@@ -27,7 +27,7 @@ The SOTA model has a much more complicated algorithm design. Fortunately, the au
 
 For both solutions, I used pre-trained models to examine their preliminary performance. In production, both models should be trained on proper training data sets.
 
-Below I tested the solutions with a video clip of people in shopping mall ([link]()). It is not seen by the models before, and present some occlusion challenges.
+Below I tested the solutions with a video clip of people in shopping mall ([link](https://www.pexels.com/video/people-walking-inside-a-shopping-mall-4750076/)). It is not seen by the models before, and present some occlusion challenges.
 
 ## Performance
 ### Baseline solution: YOLOv3 + SORT
